@@ -1,0 +1,52 @@
+// formatting for the sign-in container
+#sign-in-container {
+    background-color: $black1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+// formatting for the sign-in box
+#sign-in {
+    border: 1px solid black;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40%;
+    width: 30%;
+    padding: 0.5em;
+}
+
+// formatting for row in sign-in box
+.oAuth {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.oAuth:hover {
+    cursor: pointer;
+    background-color: $black3;
+    opacity: 0.2;
+}
+
+// formatting for the icon in login row
+.oAuth img {
+    height: 2em;
+    width: 2em;
+}
+
+// formatting for the name in login name
+.oAuthName {
+    padding: 1em;
+}
+
+#signin-btn {
+    margin-left: auto;
+}

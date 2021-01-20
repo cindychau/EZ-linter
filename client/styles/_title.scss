@@ -1,0 +1,40 @@
+//formatting for the title div
+#title {
+    color: $white;
+    margin-top: 50px;
+    mix-blend-mode: luminosity;
+    font-size: 3em;
+    height: 10%;
+    padding: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#subheader {
+color: $jet;
+text-align: center;
+font-size: 0.5em;
+margin-top: 15px;
+}
+
+.Title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .Title:hover > .Collapse {
+    color: $green;
+  }
+  
+  .Title h3 {
+    color: $jet;
+    mix-blend-mode: luminosity;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
