@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import Main from './components/mainPage.jsx';
-import { BrowserRouter as Router, Switch, Route, useParams} from 'react-router-dom';
+import MainLinter from './lintercomponents/mainLinter.jsx';
+import MainWebpack from './webpackcomponents/mainWebpack.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+} from 'react-router-dom';
+import Home from './Home.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -10,10 +18,23 @@ export default class App extends Component {
   render() {
     return (
       <Router>
+        <Link to="/linter">
+          <button>EZ-Linter</button>
+        </Link>
+        <Link to="/webpack">
+          <button>EZ-Pack</button>
+        </Link>
+
         <div id="entry">
           <Switch>
             <Route path="/shared/:id" children={<MainRenderer />} />
-            <Route path="/" children={<Main />} />
+            <Route path="/linter" children={<MainLinter />} />
+            <Route path="/webpack">
+              <MainWebpack />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -22,6 +43,7 @@ export default class App extends Component {
 }
 
 function MainRenderer() {
+  //useParams returns an object of key/value pairs of URL parameters. Use it to access params of the current <Route>.
   const { id: sharedConfigId } = useParams();
-  return <Main sharedConfigId={sharedConfigId} />
+  return <MainLinter sharedConfigId={sharedConfigId} />;
 }
