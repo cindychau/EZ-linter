@@ -11,7 +11,7 @@ import ShareBtn from './ShareBtn.jsx';
 import SaveConfigBtn from './SaveConfigBtn.jsx';
 import SavedConfigs from './SavedConfigs.jsx';
 
-class Main extends Component {
+class MainLinter extends Component {
   constructor(props) {
     super(props);
 
@@ -43,7 +43,7 @@ class Main extends Component {
         config: presets,
       });
     } else {
-      this.updateAllRules(0)
+      this.updateAllRules(0);
     }
   }
 
@@ -76,7 +76,9 @@ class Main extends Component {
 
   updateAllRules(explicitNewVal) {
     const allRulesTo = (newVal) =>
-      Object.fromEntries(Object.entries(this.state.config.rules).map(([key]) => [key, newVal]));
+      Object.fromEntries(
+        Object.entries(this.state.config.rules).map(([key]) => [key, newVal])
+      );
     // checking the current value of the first rule and setting the newVal accordingly
     // if 0, set to 1; if 1, set to 2; if 2, set to 0
 
@@ -149,7 +151,9 @@ class Main extends Component {
 
   updateAllEnvironments() {
     const allEnvsTo = (newVal) =>
-      Object.fromEntries(Object.entries(this.state.config.env).map(([key]) => [key, newVal]));
+      Object.fromEntries(
+        Object.entries(this.state.config.env).map(([key]) => [key, newVal])
+      );
     // checking the current value of the first env and setting the newVal accordingly
     // if true, set to false; if false, set to true
     const currVal = this.state.allEnvironments;
@@ -202,7 +206,9 @@ class Main extends Component {
 
   removeSavedConfig(name) {
     this.setState({
-      savedConfigs: this.state.savedConfigs.filter((configObj) => configObj.name !== name),
+      savedConfigs: this.state.savedConfigs.filter(
+        (configObj) => configObj.name !== name
+      ),
     });
   }
 
@@ -212,7 +218,9 @@ class Main extends Component {
     fetch(configUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ config: data.eslintrc }))
-      .catch((err) => window.alert('Could not load configuration. Tough luck...'));
+      .catch((err) =>
+        window.alert('Could not load configuration. Tough luck...')
+      );
   }
 
   importConfig(event) {
@@ -258,7 +266,9 @@ class Main extends Component {
       fetch(`/api/config/share/${this.props.sharedConfigId}`)
         .then((res) => {
           if (res.status === 410) {
-            window.alert('This configuration seems to have expired and is no longer available');
+            window.alert(
+              'This configuration seems to have expired and is no longer available'
+            );
             throw new Error('expired configuration');
           }
 
@@ -277,7 +287,7 @@ class Main extends Component {
     console.log(this.state);
 
     return (
-      <div id="main">
+      <div id="mainlinter">
         <div id="topButtons">
           <ImportBtn importHandler={this.importConfig} />
           <ExportBtn config={config} />
@@ -298,7 +308,7 @@ class Main extends Component {
             <div id="subheader">ESLint configs that don't suck.</div>
           </header>
           {this.state.isLoggedIn ? (
-           <div> 
+            <div>
               {this.state.savedConfigs.length ? <h3>Saved Configs:</h3> : null}
               <SavedConfigs
                 configs={this.state.savedConfigs}
@@ -328,4 +338,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainLinter;

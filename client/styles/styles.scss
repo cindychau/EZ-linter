@@ -33,11 +33,29 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  width:100%;
+  width: 100%;
+}
+
+#mainlinter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
+
+#mainwebpack{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
 }
 
 #content {
-  width:800px;
+  width: 800px;
   max-width: 100%;
 }
 
@@ -71,7 +89,8 @@ body {
 }
 
 //applies to rule and env
-h2, h3 {
+h2,
+h3 {
   color: $jet;
   text-align: center;
 }
