@@ -30,17 +30,8 @@ function Instructions() {
             </a>
             &nbsp;(<code>^10.12.0</code>, or <code>>=12.0.0</code>) built with SSL support. (If you are using an official Node.js distribution, SSL is always built in.)
           </p>
-          <p>To use Webpack, simply:</p>
+          <p>To use ESLint, simply:</p>
           <ol>
-            <li>Create a directory, initialize a project, install webpack locally, and install the webpack command line tools:</li>
-            <pre>
-              <code>
-              mkdir webpack-demo <br/>
-              cd webpack-demo<br/>
-              npm init -y<br/>
-              npm install webpack webpack-cli --save-dev
-              </code>
-            </pre>
             <li>Install it globally or locally using npm or yarn:</li>
             <pre>
               <code>
@@ -51,24 +42,6 @@ function Instructions() {
                 yarn add eslint --dev // local install <br />
               </code>
             </pre>
-            <li>Set your desired configurations and export the '.eslintrc.json' file</li>
-            <li>Save the exported file in your project's root directory</li>
-            <li>Run ESLint on any file or directory like this:</li>
-            <pre>
-              <code>
-                npx eslint yourfile.js <br />
-
-                # or <br />
-
-            <li>Set your desired configurations and export the '.eslintrc.json' file</li>
-            <li>Save the exported file in your project's root directory</li>
-            <li>Run ESLint on any file or directory like this:</li>
-            <pre>
-              <code>
-                npx eslint yourfile.js <br />
-
-                # or <br />
-
             <li>Set your desired configurations and export the '.eslintrc.json' file</li>
             <li>Save the exported file in your project's root directory</li>
             <li>Run ESLint on any file or directory like this:</li>

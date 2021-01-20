@@ -30,12 +30,12 @@
   display: flex;
   justify-content: left;
   flex-direction: column;
-  left: 0;
-  width: 25%;
+  width: 50%;
 }
 
 .header{
   button{
+    font-size: 18px;
     background-color: transparent;
     border: none;
   }
@@ -49,6 +49,7 @@
   margin-left: 2vw;
 
   button{
+    font-size: 16px;
     &:hover{
       color: $ming;
       outline: none;

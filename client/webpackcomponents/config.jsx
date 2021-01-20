@@ -13,7 +13,6 @@ function Config(props) {
 
   return (
     <div id='configDropdown'>
-      Config:
       {headers}
     </div>
   );
