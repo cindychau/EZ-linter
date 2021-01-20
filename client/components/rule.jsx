@@ -11,7 +11,7 @@ function Rule(props) {
   if (ruleValue === 1) {
     opacity = "100%";
     // hex val of '$orange'
-    backgroundColor = "#e57a10";
+    backgroundColor = "#a3cacf";
   } 
   else if (ruleValue === 2) {
     opacity = "100%";

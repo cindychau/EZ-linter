@@ -295,7 +295,7 @@ class Main extends Component {
         <div id="content">
           <header id="title">
             <h1>{'{ EZ-linter }'}</h1>
-            <div id="subheader">ESLint configs that don't suck</div>
+            <div id="subheader">ESLint configs that don't suck.</div>
           </header>
           {this.state.isLoggedIn ? (
            <div> 

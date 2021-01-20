@@ -1,0 +1,27 @@
+#topButtons {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    z-index: 2;
+  
+    color: white;
+    background: $ming;
+    // justify-content: space-between;
+}
+
+.ui-btn {
+    padding: 8px;
+    border-radius: 50px;
+    margin: 5px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.ui-btn:hover {
+    font-weight: bold;  
+}

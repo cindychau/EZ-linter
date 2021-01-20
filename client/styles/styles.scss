@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import 'palette';
+@import 'fonts';
+@import 'title';
+@import 'login';
+@import 'config';
+@import 'navbar';
+@import 'instructions';
+
 // setting variables for reference
-$black1: rgb(0, 0, 0, 0.2);
-$black2: rgb(0, 0, 0, 0.4);
-$black3: rgb(0, 0, 0, 0.6);
-$black4: rgb(0, 0, 0, 0.8);
-$black5: rgb(0, 0, 0, 1);
-$white: #ffffeb;
-$red: #8f1a00;
-$orange: #e57a10;
-$green: green;
-$draculaPurple: #bd93f9;
-$warning: rgba(226, 102, 31, 0.6);
-$error: rgba(245, 60, 60, 0.6);
-$font1: courier monospace;
-$font2: 'Fira Code', monospace;
-$background: linear-gradient(135deg, hsla(295, 73%, 16%, 1) 0%, hsla(0, 71%, 20%, 1) 100%);
+$background: white;
 
 body {
   background: $background;
@@ -30,27 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-}
-
-//formatting for the title div
-#title {
-  color: $white;
-  margin-top: 50px;
-  mix-blend-mode: luminosity;
-  font-size: 3em;
-  height: 10%;
-  padding: 1.25em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#subheader {
-  color: $white;
-  text-align: center;
-  font-size: 0.5em;
-  margin-top: 15px;
+  color: $jet;
 }
 
 #main {
@@ -75,32 +49,6 @@ body {
   text-align: center;
 }
 
-.Title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 15px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.Title:hover > .Collapse {
-  color: $green;
-}
-
-//applies to rule and env
-h2, h3 {
-  color: $white;
-  text-align: center;
-}
-
-.Title h3 {
-  color: $white;
-  mix-blend-mode: luminosity;
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 .Grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(12em, auto));
@@ -115,16 +63,21 @@ h2, h3 {
 }
 
 #row {
-  color: $white;
+  color: $jet;
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 50px;
 }
 
+//applies to rule and env
+h2, h3 {
+  color: $jet;
+  text-align: center;
+}
 
 .Item {
-  color: $white;
+  color: $jet;
   cursor: pointer;
   opacity: 30%;
   background-color: $black2;
@@ -137,155 +90,8 @@ h2, h3 {
   user-select: none;
 }
 
-// formatting for the sign-in container
-#sign-in-container {
-  background-color: $black1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-// formatting for the sign-in box
-#sign-in {
-  border: 1px solid black;
-  border-radius: 0.5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 40%;
-  width: 30%;
-  padding: 0.5em;
-}
-
-// formatting for row in sign-in box
-.oAuth {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-}
-
-.oAuth:hover {
-  cursor: pointer;
-  background-color: $black3;
-  opacity: 0.2;
-}
-
-// formatting for the icon in login row
-.oAuth img {
-  height: 2em;
-  width: 2em;
-}
-
-// formatting for the name in login name
-.oAuthName {
-  padding: 1em;
-}
-
-.saved-configs {
-  display: flex;
-  justify-content: center;
-}
-
-.saved-config-btn {
-  color: white;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.saved-config-del-btn {
-  cursor: pointer;
-  margin: 3px;
-  background: transparent;
-  border: none;
-  color: red;
-  font-size: 1.1em;
-  padding: 2px;
-  display: inline;
-
-}
-
-#topButtons {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 5px;
-  display: flex;
-  z-index: 2;
-
-  background: #7d5569;
-  // justify-content: space-between;
-}
-
-#configButtons {
-  display: flex;
-  justify-content: center;
-}
-
-.ui-btn {
-  padding: 8px;
-  border-radius: 50px;
-  margin: 5px;
-  color: white;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.ui-btn:hover {
-  font-weight: bold;
-}
-
-#signin-btn {
-  margin-left: auto;
-}
-
-#Instructions {
-  color: white;
-  line-height: 2em;
-  margin-left: 3em;
-  width: 80%;
-}
-
-#Instructions a {
-  color: $draculaPurple;
-  text-decoration: none;
-}
-
-#instructions ol {
-  margin-left: 2em;
-}
-
-#Instructions pre {
-  // border: 1px solid black;
-  border-radius: 0.5em;
-  padding: 0.9em;
-  user-select: none;
-  width: 100%;
-  background: #7d5569;
-}
-
-code {
-  // background-color: $draculaPurple;
-  letter-spacing: -0.1em;
-  font-family: $font2;
-  font-size: 90%;
-}
-
 #import-input {
   display: none;
-}
-
-.StyleGuide {
-  // padding-top: 1em;
-  // padding-right: 1em;
-  // width: 32%;
-  // border-radius: 25px;
 }
 
 hr {

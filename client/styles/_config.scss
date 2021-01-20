@@ -1,0 +1,27 @@
+.saved-configs {
+    display: flex;
+    justify-content: center;
+}
+  
+.saved-config-btn {
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}
+  
+.saved-config-del-btn {
+    cursor: pointer;
+    margin: 3px;
+    background: transparent;
+    border: none;
+    color: red;
+    font-size: 1.1em;
+    padding: 2px;
+    display: inline;
+  
+}
+
+#configButtons {
+    display: flex;
+    justify-content: center;
+}
