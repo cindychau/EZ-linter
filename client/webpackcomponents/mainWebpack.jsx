@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Config from './config.jsx';
 import Instructions from './instructions.jsx';
+import Code from './code.js';
 import ourState from './state.js';
 
 //importing buttons from lintercomponents folder
@@ -76,7 +77,10 @@ class mainWebpack extends Component {
               />
             </div>
           ) : null}
-          <Config headers={Object.entries(this.state.config)} updateCode={this.updateCode} />
+          <div id='webpackcontent'>
+            <Config headers={Object.entries(this.state.config)} updateCode={this.updateCode} />
+            <Code />
+          </div>
           <Instructions />
         </div>
 

@@ -26,12 +26,12 @@ class Header extends Component {
             rules.push(<Rule label={Object.keys(this.props.rules)[i]} key={Object.keys(this.props.rules)[i]} header={this.props.label} updateCode={this.props.updateCode} />)
         }
 
+        const rulecontainer = this.state.visible ? <div id='rulecontainer'>{rules}</div> : <div></div>;
+
         return(
             <div className='header'>
-                <button onClick={this.dropList} >{this.props.label}</button>
-                <div id='rulecontainer' style={{visibility: this.state.visible ? 'visible' : 'hidden'}}>
-                {rules}
-                </div>
+                <button onClick={this.dropList} >{ this.state.visible ? '- ' : '+ ' }{this.props.label}</button>
+                {rulecontainer}
             </div>
         )
     }
