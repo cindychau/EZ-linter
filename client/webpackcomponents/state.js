@@ -10,15 +10,6 @@ const ourState = {
       "Tailwind CSS": false,
       "Material-UI": false      
     },
-    "testFramework": {
-      "Jest": false,
-      "Mocha": false,
-      "Chai": false,
-      "Jasmine": false,
-      "AVA": false,
-      "Cypress": false,
-      "TestCafe": false
-    },
     "Transpiler": {
       "Babel": false,
       "Typescript": false

@@ -2,13 +2,13 @@
 const ourProps = {
     "React": {
         module: {
-            file: '/\.(js|jsx)$/',
+            test: '/\.(js|jsx)$/',
             loaders: 'babel-loader'
         }
     },
     "Svelte": {
         module: {
-            file: '/\.svelte$/',
+            test: '/\.svelte$/',
             loaders: 'svelte-loader',
             options: {
                 preprocess:  `require('svelte-preprocess')({})`
@@ -22,7 +22,7 @@ const ourProps = {
         },
         plugins: 'new VueLoaderPlugin()',
         module:{
-            file: '/\.vue$/',
+            test: '/\.vue$/',
             loaders: 'vue-loader'
         }
     },
@@ -155,5 +155,4 @@ const ourProps = {
     }
   }
   
-  export default ourState;
-  
+export default ourProps;
