@@ -2,20 +2,7 @@ import React, { Component } from 'react';
 import Import from './import.js';
 import Module from './module.js';
 import Plugin from './plugin.js';
-
-const defaultWebpack =
-`const webpack = require('webpack');
-const path = require('path');
-
-const config = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  }
-};
-
-module.exports = config;`;
+import Properties from './properties.js';
 
 class Code extends Component{
     constructor(props){
@@ -23,14 +10,31 @@ class Code extends Component{
         this.state={};
     }
 
-    
     render(){
+
+        const imports = [];
+        const modules = []
+        const plugins = [];
+
+        // for (let i = 0; i < this.props.imports.length; i++){
+        //     imports.push(<Import name={this.props.imports[i].name} path={this.props.imports[i].path} />);
+        // }
+        
+        // for (let i = 0; i < this.props.modules.length; i++){
+        //     modules.push(<Module file={this.props.modules[i].test} loaderArray={this.props.modules[i].loaders} useArray={this.props.modules[i].use}/>)
+        // }
+        
+        // for (let i = 0; i < this.props.plugins.length; i++){
+        //     plugins.push(<Plugin plugins={this.props.plugins[i].plugins} />);
+        // }
+
         return(
             <div id='webpackcode'>
                 <pre>
                     <code>
                         <Import name='webpack' path='webpack' />
                         <Import name='path' path='path' />
+                        {imports}
                         <br/>
                         <span style={{color:'#9d4edd'}} >const</span> config = {'{'} <br/>
                             {'    '}entry: <span style={{color:'#2a9d8f'}} > './src/index.js'</span>, <br/>
@@ -40,9 +44,10 @@ class Code extends Component{
                             {'    '}{'}'},<br/>
                             {'    '}module: {'{'} <br/>
                             {'    '}{'    '}rules: [
-                            <Module file='/\.css$/' useArray={`'style-loader','css-loader'`}/>
+                            {modules}
                             {'    '}{'    '}]<br/>
                             {'    '}{'}'}<br/>
+                            {plugins}
                         {'}'} <br/>
                         <br/>
                         module.exports = config;

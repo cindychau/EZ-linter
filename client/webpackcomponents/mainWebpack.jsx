@@ -3,6 +3,7 @@ import Config from './config.jsx';
 import Instructions from './instructions.jsx';
 import Code from './code.js';
 import ourState from './state.js';
+import ourProps from './properties.js';
 
 //importing buttons from lintercomponents folder
 import ShareBtn from '../lintercomponents/ShareBtn.jsx';
@@ -16,7 +17,11 @@ class mainWebpack extends Component {
     
     this.state = {
       config: ourState,
+      props: ourProps,
       savedConfigs: [],
+      imports: [],
+      modules: [],
+      plugins: [],
       isLoggedIn: false,
     };
 
@@ -29,7 +34,6 @@ class mainWebpack extends Component {
   }
 
   updateCode(header, rule){
-    console.log(header, rule);
     let newBool;
     const currBool = this.state.config[header][rule];
     newBool = !currBool;
@@ -41,6 +45,39 @@ class mainWebpack extends Component {
         [rule]: newBool,
       },
     }});
+
+    if (!newBool)
+      return;
+
+    if (this.state.props[rule].hasOwnProperty('import')){
+      let newImports = [...this.state.imports];
+      newImports.push(this.state.props[rule].import);
+      this.setState({...this.state, imports: newImports});
+    }
+
+    if (this.state.props[rule].hasOwnProperty('module')){
+      let newModules = [...this.state.modules];
+      newModules.push(this.state.props[rule].module);
+      this.setState({...this.state, modules: newModules});
+    }
+
+    if (this.state.props[rule].hasOwnProperty('plugin')){
+      let newPlugins = [...this.state.plugins];
+      newPlugins.push(this.state.props[rule].plugin);
+      this.setState({...this.state, plugins: newPlugins});
+    }
+
+    console.log(this.state.modules);
+
+    // let allRules = [];
+    // Object.entries(this.state.config).forEach(header=>{
+    //   allRules.push(header[1]);
+    // })
+
+    // allRules = allRules.reduce((acc, curr)=>{
+    //   return Object.assign(acc, curr)
+    // }, {});
+
   }
 
   render() {
@@ -72,14 +109,12 @@ class mainWebpack extends Component {
               {this.state.savedConfigs.length ? <h3>Saved Configs:</h3> : null}
               <SavedConfigs
                 configs={this.state.savedConfigs}
-                // loader={this.loadUserConfig}
-                // remover={this.removeSavedConfig}
               />
             </div>
           ) : null}
           <div id='webpackcontent'>
             <Config headers={Object.entries(this.state.config)} updateCode={this.updateCode} />
-            <Code />
+            <Code imports={this.state.imports} modules={this.state.modules} plugins={this.state.plugins} />
           </div>
           <Instructions />
         </div>
