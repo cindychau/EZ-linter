@@ -77,11 +77,15 @@ app.get('/api/config/:id', configControllers.getConfig, (req, res) => {
 });
 
 // retrieve shared config
-app.get('/api/config/share/:id', configControllers.getSharedConfig, (req, res) => {
-  if (!res.locals.config) return res.sendStatus(410);
+app.get(
+  '/api/config/share/:id',
+  configControllers.getSharedConfig,
+  (req, res) => {
+    if (!res.locals.config) return res.sendStatus(410);
 
-  return res.json({ eslintrc: res.locals.config });
-});
+    return res.json({ eslintrc: res.locals.config });
+  }
+);
 
 // save shared config and return id for sharing
 app.post('/api/config/share', configControllers.shareConfig, (req, res) => {
@@ -98,9 +102,14 @@ app.get(
   sessionController.createSession,
   secretCookieController.setEncryptedCookie,
   (req, res) => {
-    if (process.env.NODE_ENV === 'production') return res.redirect('/');
+    if (process.env.NODE_ENV === 'production')
+      return res.redirect('/?avatar=' + res.locals.gitProfile.avatar_url);
     // if on development, redirect to webpack server at 8080
-    return res.redirect('http://localhost:8080');
+
+    console.log(res.locals.gitProfile.avatar_url);
+    return res.redirect(
+      'http://localhost:8080?avatar=' + res.locals.gitProfile.avatar_url
+    );
   }
 );
 

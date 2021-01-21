@@ -252,6 +252,7 @@ class MainLinter extends Component {
   }
 
   componentDidMount() {
+    console.log("compDIDMOUNT", this.findGetParameter('avatar'))
     // attempt to retrieve the user's saved configs
     fetch('api/user/savedconfigs').then((res) => {
       if (res.status === 200) {
@@ -279,6 +280,8 @@ class MainLinter extends Component {
         .catch((err) => console.error(err));
     }
   }
+
+
 
   render() {
     const { rules, env, parserOptions } = this.state.config;
